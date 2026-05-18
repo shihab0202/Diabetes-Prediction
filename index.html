@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Prediction - DiabetesPred</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-content">
+            <div class="brand">
+                <span class="logo-icon">🏥</span>
+                <div>
+                    <span class="logo-text">DiabetesPred</span>
+                    <p class="navbar-subtitle">AI-powered diabetes risk assessment</p>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#overview">How it works</a>
+                <a href="#predictionForm">Start assessment</a>
+            </nav>
+            <button id="themeToggle" class="btn-theme" type="button">Dark Mode</button>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Health intelligence</span>
+                <h1>Fast, trusted diabetes risk insights from machine learning</h1>
+                <p>Use a clinical-grade prediction model to understand your diabetes risk in seconds. This tool helps you prepare for the next conversation with your healthcare provider.</p>
+                <div class="hero-actions">
+                    <a href="#predictionForm" class="btn-primary">Start Assessment</a>
+                    <a href="#overview" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-panel card">
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <span>7</span>
+                        <p>Standard inputs</p>
+                    </div>
+                    <div class="stat-card">
+                        <span>Real-time</span>
+                        <p>Model inference</p>
+                    </div>
+                    <div class="stat-card">
+                        <span>Practical</span>
+                        <p>Actionable awareness</p>
+                    </div>
+                </div>
+                <div class="feature-list">
+                    <h3>Core inputs</h3>
+                    <ul>
+                        <li>Pregnancies & age</li>
+                        <li>Glucose & blood pressure</li>
+                        <li>Insulin, BMI & skin thickness</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="app-grid home-grid">
+            <div class="form-section card">
+                <div class="section-header">
+                    <h2>Diabetes risk prediction</h2>
+                    <p>Enter the most important health values and receive a crisp yes/no status plus confidence percentage.</p>
+                </div>
+                <form id="predictionForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="pregnancies">Pregnancies</label>
+                            <input type="number" id="pregnancies" name="pregnancies" min="0" step="1" required placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="glucose">Glucose (mg/dL)</label>
+                            <input type="number" id="glucose" name="glucose" min="0" step="0.1" required placeholder="120">
+                        </div>
+                        <div class="form-group">
+                            <label for="blood_pressure">Blood Pressure (mmHg)</label>
+                            <input type="number" id="blood_pressure" name="blood_pressure" min="0" step="0.1" required placeholder="80">
+                        </div>
+                        <div class="form-group">
+                            <label for="skin_thickness">Skin Thickness (mm)</label>
+                            <input type="number" id="skin_thickness" name="skin_thickness" min="0" step="0.1" required placeholder="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="insulin">Insulin (mu U/ml)</label>
+                            <input type="number" id="insulin" name="insulin" min="0" step="0.1" required placeholder="79">
+                        </div>
+                        <div class="form-group">
+                            <label for="bmi">BMI</label>
+                            <input type="number" id="bmi" name="bmi" min="0" step="0.1" required placeholder="25">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" min="0" max="150" step="1" required placeholder="30">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">Predict</button>
+                </form>
+            </div>
+
+            <aside class="impact-panel card">
+                <div class="section-header">
+                    <h3>Feature impact</h3>
+                    <p>These inputs have the strongest influence on the outcome.</p>
+                </div>
+                <ul class="impact-list">
+                    <li><strong>Glucose:</strong> High values strongly raise risk.</li>
+                    <li><strong>BMI:</strong> Higher body mass is linked with increased diabetes risk.</li>
+                    <li><strong>Blood Pressure:</strong> Elevated pressure often aligns with metabolic risk.</li>
+                    <li><strong>Insulin:</strong> Extreme insulin values may indicate imbalance.</li>
+                    <li><strong>Age:</strong> Risk increases with older age.</li>
+                    <li><strong>Pregnancies:</strong> Multiple pregnancies can raise long-term risk.</li>
+                </ul>
+            </aside>
+        </section>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Analyzing your health data...</p>
+        </div>
+
+        <div id="resultSection" class="result-section hidden">
+            <div id="result" class="result-box"></div>
+            <button type="button" class="btn-reset" onclick="resetForm()">New Assessment</button>
+        </div>
+
+        <div id="errorSection" class="error-section hidden">
+            <h2>⚠️ Error</h2>
+            <p id="errorMessage"></p>
+            <button type="button" class="btn-reset" onclick="resetForm()">Try Again</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Medical Disclaimer:</strong> This site is for educational purposes only and is not a substitute for professional medical advice.</p>
+            <p>&copy; 2024 Diabetes Prediction System</p>
+        </div>
+    </footer>
+
+    <script src="static/js/script.js"></script>
+</body>
+</html>
